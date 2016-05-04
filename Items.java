@@ -113,7 +113,7 @@ public class Items implements Cloneable{
 		equipment w7 = new equipment("katana", "Three feet of masterfully-folded hanzo steel. A tool of justice. Seriously, guys, stop laughing at me! I mean it!", false, "null", 0, 7, 7, (byte)0b00001001);
 		w7.setVerb(KatanaVerb);
 		equipVector.addElement(w7);
-		equipment w8 = new equipment("Bill-Bec-de-Corbin-Glaive-Guisarme-Halberd-Ranseur", "It... um... it... it's a polearm.", true, "null", 0, 8,10, (byte)0b00001001);
+                equipment w8 = new equipment("Bill-Bec-de-Corbin-Glaive-Guisarme-Halberd-Ranseur", "It... um... it... it's a polearm.", true, "Inventory", 0, 8,10, (byte)0b00001001);
 		String[] tempVerb = {"um... s-stab? I think?", "deliver some sort of attack to", "um... cu- no, not a cut... more of a slashy-stab-hack-bludgeon-tickle, really... something. You do something to"};
 		w8.setVerb(tempVerb);
 		equipVector.addElement(w8);
