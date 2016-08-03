@@ -86,7 +86,7 @@ public class Mobs {
 		m1.setDef(0);
 		String[] sm1BP = {"snout", "face", "body", "tail"};
 		m1.setBodyplan(sm1BP);
-		String[] sm1S = {"I will hack off your head and feed it to Hell's fishes.", "I shall consume your soul, lightly seasoned with a bit of nutmeg.", "You got any threes?", "I was gonna kill all life, but then I got high."};
+		String[] sm1S = {"How's it going?", "You look well.", "I'm just sitting here, enjoying my tea."};
 		m1.setSpeech(sm1S);
 		m1.setDesc("Dude, it's just a freaking aardvark. Chill.");
 		m1.setDex(5);
