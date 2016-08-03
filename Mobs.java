@@ -170,6 +170,7 @@ public class Mobs {
 		b0.setLocatedAt("Boss Room");
 		b0.maxHP = 100;
 		b0.hp = 100;
+		b0.gender = 0; //Gary's a dude, should use "he", not "it".
 		String[] sb0S = {"What do you want, peon?"};
 		String[] sb0Atk = {"punch", "hit", "beat", "pound"};
 		String[] sb0Bp = {"head", "left tusk", "neck", "chest", "stomach", "fat", "left arm", "right arm", "left leg", "right leg"};
