@@ -39,7 +39,9 @@ public class main {
 	outCol = 0;
 	if (outtext.length() <= OUT_WIDTH){
 		out(outtext);
+		if (outtext.length() < OUT_WIDTH){
 		out("\n");
+		}
 	} else {
 		int lastSpace = outtext.lastIndexOf(' ',OUT_WIDTH);
 		if (lastSpace <= 0){

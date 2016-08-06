@@ -64,7 +64,7 @@ public class Parser {
 					outText.append(art + " " + itemsHere.elementAt(n).name + ", ");
 				}
 				art = getArticle(itemsHere.elementAt(itemsHere.size()-1));
-				outText.append("and " + art + " " + itemsHere.elementAt(itemsHere.size() - 1).name + " are here.\n");
+				outText.append("and " + art + " " + itemsHere.elementAt(itemsHere.size() - 1).name + " are here.");
 				main.output(outText.toString());
 				break;
 
@@ -92,7 +92,7 @@ public class Parser {
 				}
 
 				art = getArticle(equipHere.elementAt(equipHere.size() -1));
-				outText.append("and " + art + " " + equipHere.elementAt(equipHere.size() - 1).name + " are here.\n");
+				outText.append("and " + art + " " + equipHere.elementAt(equipHere.size() - 1).name + " are here.");
 				main.output(outText.toString());
 				break;
 
@@ -120,7 +120,7 @@ public class Parser {
 					outText.append(art + " " + npcHere.elementAt(n).name + " is " + npcHere.elementAt(n).position + ", ");
 				}
 				art = getArticle(npcHere.elementAt(npcHere.size() - 1));
-				outText.append("and " + art + " " + npcHere.elementAt(npcHere.size() - 1).name + " is " + npcHere.elementAt(npcHere.size() - 1).position + " here.\n");
+				outText.append("and " + art + " " + npcHere.elementAt(npcHere.size() - 1).name + " is " + npcHere.elementAt(npcHere.size() - 1).position + " here.");
 				main.output(outText.toString());
 				break;
 			}
@@ -145,7 +145,7 @@ public class Parser {
 					outText.append(art + " " + monsHere.elementAt(n).name + " is " + monsHere.elementAt(n).position + ", ");
 				}
        			art = getArticle(monsHere.elementAt(monsHere.size() -1));
-				outText.append("and " + art + " " + monsHere.elementAt(monsHere.size() - 1).name + " is " + monsHere.elementAt(monsHere.size() - 1).position + " here.\n");
+				outText.append("and " + art + " " + monsHere.elementAt(monsHere.size() - 1).name + " is " + monsHere.elementAt(monsHere.size() - 1).position + " here.");
 				main.output(outText.toString());
 				break;
 
