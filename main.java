@@ -22,6 +22,8 @@ public class main {
 	public static JScrollPane gameWindow = new JScrollPane(textWindow);
 	public static JFrame frame = new JFrame("Text Adventure");
 	public final static int ENTER = KeyEvent.VK_ENTER;
+	public final static int OUT_WIDTH = 80;
+	public static int outCol = 0;
 	
 
 	
@@ -34,8 +36,21 @@ public class main {
 		
 	}
 	public static void output (String outtext){ 
-		outtext += "\n";
+	outCol = 0;
+	if (outtext.length() <= OUT_WIDTH){
 		out(outtext);
+		out("\n");
+	} else {
+		int lastSpace = outtext.lastIndexOf(' ',OUT_WIDTH);
+		if (lastSpace <= 0){
+		lastSpace = OUT_WIDTH;
+		}
+		StringBuffer outString = new StringBuffer(outtext.substring(0,lastSpace));
+		output(outString.toString());
+		output(outtext.substring(lastSpace+1));
+
+
+	}
 	}
 	
 	public void keyPressed(KeyEvent e) {
@@ -113,8 +128,8 @@ public class main {
 			r = loc.getRoom(1);
 
 		//ASCII art title!
-		output(" #  ###  #   # #### #  # #####\n# # #  # #   # ##   ## #   #\n### #  #  # #  #    # ##   #\n# # ###    #   #### #  #   #\n");
-		output("\n A text adventure by Jeff Morse.\nType \"quit\" to exit, and 'help' to get help.\n");
+		out(" #  ###  #   # #### #  # #####\n# # #  # #   # ##   ## #   #\n### #  #  # #  #    # ##   #\n# # ###    #   #### #  #   #\n");
+		out("\n A text adventure by Jeff Morse.\nType \"quit\" to exit, and 'help' to get help.\n");
 
 		p.Parse("look", loc, r,pl,it, mo, mag, skl);
 

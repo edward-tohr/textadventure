@@ -158,6 +158,7 @@ public class Mob {
 		boolean defWeak = false;
 		int clearTurns = 0; // When > 0, decrements each turn. When 0, clears the weak flags. 
 		boolean parry = false; //If true, player auto-dodges.
+		StringBuffer outText = new StringBuffer();
 
 
 
@@ -238,11 +239,11 @@ public class Mob {
 						}
 					}
 					rando = rand(0,pverb.length - 1);
-					System.out.print("You attempt to " + pverb[rando] + " ");
+					outText.append("You attempt to " + pverb[rando] + " ");
 					rando = rand(0,mPlan.length - 1);
 					if (!unique)
 						tempArt = "the";
-					System.out.print(tempArt + " " + m.name + " in the " + mPlan[rando] + " with your " + pweap);
+					outText.append(tempArt + " " + m.name + " in the " + mPlan[rando] + " with your " + pweap);
 
 					double tempDef = (double) mdef;
 					if (defWeak)
@@ -261,19 +262,22 @@ public class Mob {
 					dam -= (int)tempDef;
 
 					if (!hit || dam <= 0){
-						main.output(", but the attack fails to connect!");
+						outText.append(", but the attack fails to connect!");
 
 					}
 
 					else if (crit){
-						main.output(" and succeed wonderfully! You deal " + dam + " damage!");
+						outText.append(" and succeed wonderfully! You deal " + dam + " damage!");
 						m.hp -= dam;
 					} else {
-						main.output(" and deal " + dam + " damage!");
+						outText.append(" and deal " + dam + " damage!");
 						m.hp -= dam;
 					}
-					break;
+					main.output(outText.toString());
+					outText.delete(0,outText.length());
 
+					break;
+					
 
 				case 'D':
 					defend = true;
@@ -515,12 +519,14 @@ public class Mob {
 					main.output("Be 'A'gressive, be 'D'efensive, be 'B'alanced.");
 					main.output("You are currently ");
 					if (plOption == 0)
-						System.out.print("balanced");
+						outText.append("balanced");
 					if (plOption == 1)
-						System.out.print("aggressive");
+						outText.append("aggressive");
 					if (plOption ==2)
-						System.out.print("defensive");
-					System.out.print(".\n");
+						outText.append("defensive");
+					outText.append(".\n");
+					main.output(outText.toString());
+					outText.delete(0,outText.length());
 					input = scanner.nextLine();
 					input = input.toUpperCase();
 					input = input.replaceAll("[^ABD]", " ");
@@ -816,7 +822,7 @@ public class Mob {
 					rando = rand(0,mverb.length - 1);
 					if(!unique)
 						tempArt = "The";
-					System.out.print(tempArt + " " + m.name + " attempts to " + mverb[rando] + " ");
+					outText.append(tempArt + " " + m.name + " attempts to " + mverb[rando] + " ");
 					rando = rand(0,pPlan.length - 1);
 					String mpos;
 					switch (gender) {
@@ -831,7 +837,8 @@ public class Mob {
 						break;
 
 					}
-					System.out.print("you in the " + pPlan[rando] + " with " + mpos + " " + mweap);
+					outText.append("you in the " + pPlan[rando] + " with " + mpos + " " + mweap);
+
 
 					double tempDef = (double) pdef;
 					tempDef = Math.sqrt(tempDef);
@@ -852,22 +859,24 @@ public class Mob {
 					dam -= (int)tempDef;
 
 					if (parry) {
-						main.output(", but you defend against it!");
+						outText.append(", but you defend against it!");
 					} 
 
 					else if (!hit || dam <= 0){
-						main.output(", but the attack fails to connect!");
+						outText.append(", but the attack fails to connect!");
 					}
 
 					else if (crit){
-						main.output(" and succeeds painfully! You take " + dam + " damage!");
+						outText.append(" and succeeds painfully! You take " + dam + " damage!");
 						p.hp -= dam;
 					} 
 
 					else {
-						main.output(" and deals " + dam + " damage!");
+						outText.append(" and deals " + dam + " damage!");
 						p.hp -= dam;
 					}
+					main.output(outText.toString());
+					outText.delete(0,outText.length());
 
 
 				} else {

@@ -54,16 +54,18 @@ public class Parser {
 				break;
 
 			default:
+			StringBuffer outText = new StringBuffer();
 				for (int n = 0; n < itemsHere.size() - 1; n++){
 					if (n == 0){
 					art = getArticle(itemsHere.elementAt(n),true);
 					} else {
 						art = getArticle(itemsHere.elementAt(n));
 					}
-					main.out(art + " " + itemsHere.elementAt(n).name + ", ");
+					outText.append(art + " " + itemsHere.elementAt(n).name + ", ");
 				}
 				art = getArticle(itemsHere.elementAt(itemsHere.size()-1));
-				main.out("and " + art + " " + itemsHere.elementAt(itemsHere.size() - 1).name + " are here.\n");
+				outText.append("and " + art + " " + itemsHere.elementAt(itemsHere.size() - 1).name + " are here.\n");
+				main.output(outText.toString());
 				break;
 
 
@@ -79,17 +81,19 @@ public class Parser {
 				break;
 			
 			default:
+			StringBuffer outText = new StringBuffer();
 				for (int n = 0; n < equipHere.size() - 1; n++){
 					if (n == 0){
 					art = getArticle(equipHere.elementAt(n),true);
 					}else {
 					art = getArticle(equipHere.elementAt(n));
 					}
-					main.out(art + " " + equipHere.elementAt(n).name + ", ");
+					outText.append(art + " " + equipHere.elementAt(n).name + ", ");
 				}
 
 				art = getArticle(equipHere.elementAt(equipHere.size() -1));
-				main.out("and " + art + " " + equipHere.elementAt(equipHere.size() - 1).name + " are here.\n");
+				outText.append("and " + art + " " + equipHere.elementAt(equipHere.size() - 1).name + " are here.\n");
+				main.output(outText.toString());
 				break;
 
 
@@ -106,16 +110,18 @@ public class Parser {
 
 			
 			default:
+			StringBuffer outText = new StringBuffer();
 				for (int n = 0; n < npcHere.size() - 1; n++){
 					if (n == 0){
 					art = getArticle(npcHere.elementAt(n), true);
 					} else {
 						art = getArticle(npcHere.elementAt(n));
 					}
-					main.out(art + " " + npcHere.elementAt(n).name + " is " + npcHere.elementAt(n).position + ", ");
+					outText.append(art + " " + npcHere.elementAt(n).name + " is " + npcHere.elementAt(n).position + ", ");
 				}
 				art = getArticle(npcHere.elementAt(npcHere.size() - 1));
-				main.out("and " + art + " " + npcHere.elementAt(npcHere.size() - 1).name + " is " + npcHere.elementAt(npcHere.size() - 1).position + " here.\n");
+				outText.append("and " + art + " " + npcHere.elementAt(npcHere.size() - 1).name + " is " + npcHere.elementAt(npcHere.size() - 1).position + " here.\n");
+				main.output(outText.toString());
 				break;
 			}
 
@@ -129,16 +135,18 @@ public class Parser {
 				break;
 			
 			default:
+			StringBuffer outText = new StringBuffer();
        			for (int n = 0; n < monsHere.size() - 1; n++){
        				if (n == 0){
        					art = getArticle(monsHere.elementAt(n), true);
        				} else {
        					art = getArticle(monsHere.elementAt(n));
        				}
-					main.out(art + " " + monsHere.elementAt(n).name + " is " + monsHere.elementAt(n).position + ", ");
+					outText.append(art + " " + monsHere.elementAt(n).name + " is " + monsHere.elementAt(n).position + ", ");
 				}
        			art = getArticle(monsHere.elementAt(monsHere.size() -1));
-				main.out("and " + art + " " + monsHere.elementAt(monsHere.size() - 1).name + " is " + monsHere.elementAt(monsHere.size() - 1).position + " here.\n");
+				outText.append("and " + art + " " + monsHere.elementAt(monsHere.size() - 1).name + " is " + monsHere.elementAt(monsHere.size() - 1).position + " here.\n");
+				main.output(outText.toString());
 				break;
 
 
