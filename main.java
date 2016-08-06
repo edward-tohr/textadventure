@@ -36,15 +36,13 @@ public class main {
 	}
 	public static void output (String outtext){ 
 	outCol = 0;
-	if (outtext.length() <= OUT_WIDTH){
+	if (outtext.length() <= OUT_WIDTH-1){
 		out(outtext);
-		if (outtext.length() < OUT_WIDTH){
 		out("\n");
-		}
 	} else {
-		int lastSpace = outtext.lastIndexOf(' ',OUT_WIDTH);
+		int lastSpace = outtext.lastIndexOf(' ',OUT_WIDTH-1);
 		if (lastSpace <= 0){
-		lastSpace = OUT_WIDTH;
+		lastSpace = OUT_WIDTH-1;
 		}
 		StringBuffer outString = new StringBuffer(outtext.substring(0,lastSpace));
 		output(outString.toString());
