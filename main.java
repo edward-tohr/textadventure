@@ -22,7 +22,7 @@ public class main {
 	public static JScrollPane gameWindow = new JScrollPane(textWindow);
 	public static JFrame frame = new JFrame("Text Adventure");
 	public final static int ENTER = KeyEvent.VK_ENTER;
-	public final static int OUT_WIDTH = 80;
+	public static int OUT_WIDTH = 80;
 	public static int outCol = 0;
 	
 
@@ -60,6 +60,15 @@ public class main {
         }
      }
 	public static void main (String[] args) {
+		if (args.length > 0){
+
+			try {
+				OUT_WIDTH= Integer.parseInt(args[0]);
+				} catch (NumberFormatException e){
+					out(args[0] + " is not a number! Defaulting to 80.");
+					OUT_WIDTH = 80;
+					}
+				}
 		//JScrollPane scrollPane = new JScrollPane(textWindow);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
