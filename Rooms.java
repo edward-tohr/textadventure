@@ -41,7 +41,7 @@ public class Rooms {
 		roomVector.addElement(r2);
 		Room r3 = new Room("Shop","A plain, unadorned, square room.", 3, true, 17, false, -1, true, 10, true, 2);
 		roomVector.addElement(r3);
-		Room r4 = new Room("Sword Room","A dead-end, you worthless fuckbasket.", 4, false, -1, false, -1, true, 2, true, 9);
+		Room r4 = new Room("Sword Room","There's not terribly much to this room, I'm afraid.", 4, false, -1, false, -1, true, 2, true, 9);
 		roomVector.addElement(r4);
 		Room r5 = new Room();
 		r5.setName("Inventory");

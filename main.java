@@ -1,3 +1,8 @@
+//TODO: Lots of stuff needs to be done with the window, but I'll settle for making it close
+//	automatically when the user quits. Eventually.
+
+//TODO: Make player.role and associated variables enums.
+
 import java.util.Scanner;
 //import java.io.*;
 import javax.swing.*;
@@ -21,6 +26,7 @@ public class main {
 
 	
 	//A single function to handle all text output. Should make un-consoleing it easier later on.
+	//TODO: Maybe have this determine console width and break lines on whitespace neatly?
 	public static void out (String outtext){ 
 		System.out.print(outtext);
 		textWindow.append(outtext);
@@ -107,8 +113,7 @@ public class main {
 			r = loc.getRoom(1);
 
 		//ASCII art title!
-		output("*******  *     *      ***  *    * \n*        *     *    **     *  **  \n*        *     *   *       * *    \n****     *     *  *        **     \n*        *     *   *       * *    \n*        *     *    **     *  **  \n*        *******      ***  *    * ");
-
+		output(" #  ###  #   # #### #  # #####\n# # #  # #   # ##   ## #   #\n### #  #  # #  #    # ##   #\n# # ###    #   #### #  #   #\n");
 		output("\n A text adventure by Jeff Morse.\nType \"quit\" to exit, and 'help' to get help.\n");
 
 		p.Parse("look", loc, r,pl,it, mo, mag, skl);

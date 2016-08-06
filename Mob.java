@@ -59,7 +59,7 @@ public class Mob {
 	String[] dislike = {"Oh, it's you.", "What do you want?", "Say what you will and be done with it."}; //Default greetings when dispostion is low
 	String[] afraid = {"O-oh, it's... it's you...", "H-hello, there...", "C-can I do anything f-for you?"}; //Default greetings when fear is high
 	String[] respect = {"A fine day to you.", "Greetings! Is there anything at all I may assist you with?", "I am honored to make your acquaintance"}; //Default greetings when respect is high
-	String[] disrespect = {"What the hell do you want?", "Get out of my face.", "Ugh, you again.", "Just leave me alone, you slimy bastard."}; //Default greetings when respect and disposition are low
+	String[] disrespect = {"What do you want?", "Get out of my face.", "Ugh, you again.", "Just leave me alone, you slimy goon."}; //Default greetings when respect and disposition are low
 	String[] violent = {"Are you looking to get killed? Because I'll do it.", "I've been sharpening my sword, just for you."}; //Default greetins when hatred is high
 	String[] engage = {"Time to die!", "I'll decorate my home with your innards!", "This is the part where you fall down and bleed to death!", "I am going to hit you until you run out of vital fluids to leak."}; //Default string when entering combat
 	String weapon = "fist"; //Default name for what they attack you with. I.E. Testificate Defaultus attempts to intricately karate you in the face with his [fist/sword/shoe/Infinite Blade of Annihilation/etc]
