@@ -72,10 +72,13 @@ public class main {
 		textWindow.setWrapStyleWord(true);
 		textWindow.setVisible(true);
 		textField.setBounds(0, 480, 640, 20);
-		gameWindow.add(textWindow);
-		gameWindow.setVisible(true);
-		frame.add(textWindow);
-		frame.add(textField);
+		//gameWindow.add(textWindow);
+	//	gameWindow.setVisible(true);
+	//	frame.add(textWindow);
+	//	frame.add(textField);
+		frame.add(gameWindow);
+		DefaultCaret caret = (DefaultCaret)textWindow.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         frame.setVisible(true);
 		
 		Scanner scanner = new Scanner( System.in );
