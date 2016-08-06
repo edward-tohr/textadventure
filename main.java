@@ -130,7 +130,7 @@ public class main {
 			r = loc.getRoom(1);
 
 		//ASCII art title!
-		out(" #  ###  #   # #### #  # #####\n# # #  # #   # ##   ## #   #\n### #  #  # #  #    # ##   #\n# # ###    #   #### #  #   #\n");
+		out(" ###  ####  #   # ##### #   # #####\n#   # #   # #   # #     ##  #   #  \n##### #   # #   # ###   # # #   #  \n#   # #   #  # #  #     #  ##   #  \n#   # ####    #   ##### #   #   #  \n"); 
 		out("\n A text adventure by Jeff Morse.\nType \"quit\" to exit, and 'help' to get help.\n");
 
 		p.Parse("look", loc, r,pl,it, mo, mag, skl);
