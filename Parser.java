@@ -35,12 +35,12 @@ public class Parser {
 
 			minimap(r,loc,2);
 			desc = r.getDesc();
-			main.output(desc);
+			main.output(desc+ "\n");
 			exits = r.getExits();
-			main.output(exits);
+			main.output(exits+ "\n");
 			doors = r.getDoors();
 			if (!doors.isEmpty()){
-				main.output(doors);
+				main.output(doors+ "\n");
 			}
 
 
@@ -50,7 +50,7 @@ public class Parser {
 
 			case 1:
 				art = getArticle(itemsHere.elementAt(0));
-				main.output("There is " + art + " " + itemsHere.elementAt(0).name + " here.");
+				main.output("There is " + art + " " + itemsHere.elementAt(0).name + " here.\n");
 				break;
 
 			default:
@@ -64,7 +64,7 @@ public class Parser {
 					outText.append(art + " " + itemsHere.elementAt(n).name + ", ");
 				}
 				art = getArticle(itemsHere.elementAt(itemsHere.size()-1));
-				outText.append("and " + art + " " + itemsHere.elementAt(itemsHere.size() - 1).name + " are here.");
+				outText.append("and " + art + " " + itemsHere.elementAt(itemsHere.size() - 1).name + " are here.\n");
 				main.output(outText.toString());
 				break;
 
@@ -77,7 +77,7 @@ public class Parser {
 
 			case 1:
 				art = getArticle(equipHere.elementAt(0));
-				main.output("There is " + art + " " + equipHere.elementAt(0).name + " here.");
+				main.output("There is " + art + " " + equipHere.elementAt(0).name + " here.\n");
 				break;
 			
 			default:
@@ -92,7 +92,7 @@ public class Parser {
 				}
 
 				art = getArticle(equipHere.elementAt(equipHere.size() -1));
-				outText.append("and " + art + " " + equipHere.elementAt(equipHere.size() - 1).name + " are here.");
+				outText.append("and " + art + " " + equipHere.elementAt(equipHere.size() - 1).name + " are here.\n");
 				main.output(outText.toString());
 				break;
 
@@ -105,7 +105,7 @@ public class Parser {
 
 			case 1:
 				art = getArticle(npcHere.elementAt(0), true);
-				main.output(art + " " + npcHere.elementAt(0).name + " is " + npcHere.elementAt(0).position + " here.");
+				main.output(art + " " + npcHere.elementAt(0).name + " is " + npcHere.elementAt(0).position + " here.\n");
 				break;
 
 			
@@ -120,7 +120,7 @@ public class Parser {
 					outText.append(art + " " + npcHere.elementAt(n).name + " is " + npcHere.elementAt(n).position + ", ");
 				}
 				art = getArticle(npcHere.elementAt(npcHere.size() - 1));
-				outText.append("and " + art + " " + npcHere.elementAt(npcHere.size() - 1).name + " is " + npcHere.elementAt(npcHere.size() - 1).position + " here.");
+				outText.append("and " + art + " " + npcHere.elementAt(npcHere.size() - 1).name + " is " + npcHere.elementAt(npcHere.size() - 1).position + " here.\n");
 				main.output(outText.toString());
 				break;
 			}
@@ -131,7 +131,7 @@ public class Parser {
 
 			case 1:
 				art = getArticle(monsHere.elementAt(0), true);
-				main.output(art + " " + monsHere.elementAt(0).name + " is " + monsHere.elementAt(0).position + " here.");
+				main.output(art + " " + monsHere.elementAt(0).name + " is " + monsHere.elementAt(0).position + " here.\n");
 				break;
 			
 			default:
@@ -145,7 +145,7 @@ public class Parser {
 					outText.append(art + " " + monsHere.elementAt(n).name + " is " + monsHere.elementAt(n).position + ", ");
 				}
        			art = getArticle(monsHere.elementAt(monsHere.size() -1));
-				outText.append("and " + art + " " + monsHere.elementAt(monsHere.size() - 1).name + " is " + monsHere.elementAt(monsHere.size() - 1).position + " here.");
+				outText.append("and " + art + " " + monsHere.elementAt(monsHere.size() - 1).name + " is " + monsHere.elementAt(monsHere.size() - 1).position + " here.\n");
 				main.output(outText.toString());
 				break;
 
@@ -930,6 +930,7 @@ public class Parser {
 	}
 
 	public void minimap(Room r, Rooms loc, int s){
+		main.out("\n");
 		int sightDist = s;
 		int totalNorth = 0;
 		int totalWest = 0;
@@ -972,7 +973,7 @@ public class Parser {
 		main.out("[*]");
 		mapEast(totalEast);
 		mapSouth(totalWest,totalSouth);
-		main.out("\n");
+		main.out("\n\n");
 
 	}
 
@@ -1709,6 +1710,7 @@ public class Parser {
 	
 	Room Parse (String input, Rooms loc, Room r, Player p, Items i, Mobs mo, Magic mag, Skills skl) {
 
+		main.out("\n");
 		input = input.toLowerCase();
 		int spaceAt = input.indexOf(' ');
 
@@ -1878,6 +1880,7 @@ public class Parser {
 
 
 		}
+		main.out("\n");
 		//main.output("returning r value " + r);
 		return r;	
 
