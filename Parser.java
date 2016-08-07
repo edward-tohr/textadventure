@@ -1688,6 +1688,19 @@ public class Parser {
 			return getArticle(npc);
 		}
 	}
+
+	void cols(String numCols){
+	int tempInt = main.OUT_WIDTH;
+	try {
+		tempInt = Integer.parseInt(numCols);
+		} catch (NumberFormatException e){
+			main.output("Error parsing the number! Please try again.");
+			tempInt = main.OUT_WIDTH;
+			}
+		main.OUT_WIDTH = tempInt;
+		main.output("Output width set to " + main.OUT_WIDTH);
+
+	}
 	
 	
 	Room Parse (String input, Rooms loc, Room r, Player p, Items i, Mobs mo, Magic mag, Skills skl) {
@@ -1847,6 +1860,13 @@ public class Parser {
 			
 		case "nickname":
 			nickname(r,word2,mo,i);
+			break;
+
+		case "col":
+		case "cols":
+		case "column":
+		case "columns":
+			cols(word2);
 			break;
 
 
