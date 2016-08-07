@@ -1691,6 +1691,9 @@ public class Parser {
 
 	void cols(String numCols){
 	int tempInt = main.OUT_WIDTH;
+	if (numCols == "null"){
+	main.output("Output width is: " + main.OUT_WIDTH);
+	} else {
 	try {
 		tempInt = Integer.parseInt(numCols);
 		} catch (NumberFormatException e){
@@ -1700,6 +1703,7 @@ public class Parser {
 		main.OUT_WIDTH = tempInt;
 		main.output("Output width set to " + main.OUT_WIDTH);
 
+	}
 	}
 	
 	
