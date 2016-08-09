@@ -23,7 +23,6 @@ public class main {
 	public static JFrame frame = new JFrame("Text Adventure");
 	public final static int ENTER = KeyEvent.VK_ENTER;
 	public static int OUT_WIDTH = 80;
-	public static int outCol = 0;
 	
 
 	
@@ -35,7 +34,6 @@ public class main {
 		
 	}
 	public static void output (String outtext){ 
-	outCol = 0;
 	if (outtext.length() <= OUT_WIDTH-1){
 		out(outtext);
 		out("\n");
