@@ -1,7 +1,6 @@
 import java.util.Vector;
 import java.util.Scanner;
 
-
 public class NPC extends Mob {
 	String[] inventory; // For shopkeepers, this determines what they sell. 
 	String input;
@@ -176,6 +175,7 @@ public class NPC extends Mob {
 				if (num >= have.size()){
 					main.output("You don't seem to have that many different items");
 				} else {
+						if (have.elementAt(num).use != 5){ // If the item isn't a key...
 						g += have.elementAt(num).cost;
 						Item temp = have.elementAt(num);
 						Room n = loc.getRoomFromName("null");
@@ -183,6 +183,9 @@ public class NPC extends Mob {
 						temp.setLocation(n);
 						temp.move("null", loc);
 						main.output("Thank you!");
+						} else {
+						main.output("Oh, I can't buy that!");
+						}
 
 					}//close else
 				break;
