@@ -224,32 +224,49 @@ public class Parser {
 		case "south":
 		case "east":
 		case "west":
-			main.output("MOVEMENT COMMANDS\nSyntax: [go] (direction)\nThese commands will move you in the specified direction, if possible.\nShort form: 'n', 's', 'e', 'w' will all attempt to move in the appropriate direction.");
+			main.output("MOVEMENT COMMANDS\n");
+			main.output("Syntax: [go] (direction)\n");
+			main.output("These commands will move you in the specified direction, if possible.\n");
+			main.output("Short form: 'n', 's', 'e', 'w' will all attempt to move in the appropriate direction.");
 		break;
 		case "take":
 		case "grab":
 		case "get":
-				main.output("TAKE COMMAND\nSyntax: take/get/grab (item)\nThis command will remove an item from the environment and place it in your inventory.");
+				main.output("TAKE COMMAND\n");
+				main.output("Syntax: take/get/grab (item)\n");
+				main.output("This command will remove an item from the environment and place it in your inventory.");
 				break;
 		case "drop":
 		case "throw":
 		case "lose":
-				main.output("DROP COMMAND\nSyntax: drop/throw/lose (item)\nThis command will remove an item from your inventory and place it in the environment.");
+				main.output("DROP COMMAND\n");
+				main.output("Syntax: drop/throw/lose (item)\n");
+				main.output("This command will remove an item from your inventory and place it in the environment.");
 				break;
 		case "inventory":
 		case "items":
-				main.output("INVENTORY COMMAND\nSyntax: inventory/items\nThis command will list all items currently in your inventory.\n Short form: 'i'.");
+				main.output("INVENTORY COMMAND\n");
+				main.output("Syntax: inventory/items\n");
+				main.output("This command will list all items currently in your inventory.\n");
+				main.output("Short form: 'i'.");
 				break;
 		case "look":
 		case "examine":
-					main.output("LOOK COMMAND\nSyntax: look/examine [object]\nThis command will provide a description of the object, or room if object is not specified.\nShort form: 'l [object]'.");
+					main.output("LOOK COMMAND\n");
+					main.output("Syntax: look/examine [object]\n");
+					main.output("This command will provide a description of the object, or room if object is not specified.\n");
+					main.output("Short form: 'l [object]'.");
 					break;
 		case "quit":
 		case "exit":
-			main.output("QUIT COMMAND\nSyntax: quit/exit\nThis command will exit the game.");
+			main.output("QUIT COMMAND\n");
+			main.output("Syntax: quit/exit\n");
+			main.output("This command will exit the game.");
 			break;
 		case "help":
-					main.output("HELP COMMAND\nSyntax: help [command]\nThis command provides help text on various commands. Under the syntax section, any terms in (parentheses) are required. Terms in [brackets] are optional. If there is more than one command listed, i.e. \"look/examine\", either one will be accepted by the parser.");
+					main.output("HELP COMMAND\n");
+					main.output("Syntax: help [command]\n");
+					main.output("This command provides help text on various commands. Under the syntax section, any terms in (parentheses) are required. Terms in [brackets] are optional. If there is more than one command listed, i.e. \"look/examine\", either one will be accepted by the parser.");
 					break;
 		case "help help":
 					main.output("Ha ha. Very funny, jerkface.");
@@ -257,41 +274,58 @@ public class Parser {
 		case "equip":
 		case "hold":
 		case "wear":
-				main.output("EQUIP COMMAND\nSyntax: equip/hold/wear (eqipment)\nThis command will allow you to wear and use the various weapons and armor you find.");
+				main.output("EQUIP COMMAND\n");
+				main.output("Syntax: equip/hold/wear (eqipment)\n");
+				main.output("This command will allow you to wear and use the various weapons and armor you find.");
 				break;
 		case "status":
 		case "stats":
-				main.output("STATUS COMMAND\nSyntax: status/stats\nThis command gives a summary of your status.");
+				main.output("STATUS COMMAND\n");
+				main.output("Syntax: status/stats\n");
+				main.output("This command gives a summary of your status.");
 				break;
 		case "attack":
 		case "fight":
 		case "kill":
-			main.output("FIGHT COMMAND\nSyntax: attack/fight/kill (target)\nThis command initiates combat with an NPC.");
+			main.output("FIGHT COMMAND\n");
+			main.output("Syntax: attack/fight/kill (target)\n");
+			main.output("This command initiates combat with an NPC.");
 			break;
 		case "talk":
 		case "chat":
 		case "gab":
 		case "speak":
 		case "converse":
-			main.output("TALK COMMAND\nSyntax: talk/chat/gab/converse/speak (target)\nThis command allows you to speak with an NPC. This will also allow you to buy items from merchants.");
+			main.output("TALK COMMAND\n");
+			main.output("Syntax: talk/chat/gab/converse/speak (target)\n");
+			main.output("This command allows you to speak with an NPC. This will also allow you to buy items from merchants.");
 			break;
 		case "lock":
-			main.output("LOCK COMMAND\nSyntax: lock (direction)\nThis command will attempt to lock the door in the specified direction. It will not work if there is no door, the door is already locked, or you lack the proper key.");
+			main.output("LOCK COMMAND\n");
+			main.output("Syntax: lock (direction)\n");
+			main.output("This command will attempt to lock the door in the specified direction. It will not work if there is no door, the door is already locked, or you lack the proper key.");
 			break;
 		case "unlock":
-			main.output("UNLOCK COMMAND\nSyntax: unlock (direction)\nThis command will attempt to unlock the door in the specified direction. It will not work if there is no door, the door is already unlocked, or you lack the proper key.");
+			main.output("UNLOCK COMMAND\n");
+			main.output("Syntax: unlock (direction)\n");
+			main.output("This command will attempt to unlock the door in the specified direction. It will not work if there is no door, the door is already unlocked, or you lack the proper key.");
 			break;
 		case "drink":
-			main.output("DRINK COMMAND\nSyntax: drink (potion)\nThis command will attempt to drink a potion in your inventory.");
+			main.output("DRINK COMMAND\n");
+			main.output("Syntax: drink (potion)\n");
+			main.output("This command will attempt to drink a potion in your inventory.");
 			break;
 		case "nickname":
-			main.output("NICKNAME COMMAND\nSyntax: nickname (monster/item) as (nickname)\nThis command will assign a nickname of your choice to an item or npc nearby.");
+			main.output("NICKNAME COMMAND\n");
+			main.output("Syntax: nickname (monster/item) as (nickname)\n");
+			main.output("This command will assign a nickname of your choice to an item or npc nearby.");
 			break;
 			
 		
 
 		default: 
-			main.output("Use 'look' to examine your surroundings, and 'go (direction)' to move into an adjacent, available location. You can also 'take' or 'drop' objects, and 'wear' or 'hold' equipment. Use 'talk' to converse with NPCs, or 'fight' to attack them. When you are done, simply type 'quit'.\nFor more information on a specific command, type 'help (command)' e.g. 'help look', 'help take', etc.");
+			main.output("Use 'look' to examine your surroundings, and 'go (direction)' to move into an adjacent, available location. You can also 'take' or 'drop' objects, and 'wear' or 'hold' equipment. Use 'talk' to converse with NPCs, or 'fight' to attack them. When you are done, simply type 'quit'.\n");
+			main.output("For more information on a specific command, type 'help (command)' e.g. 'help look', 'help take', etc.");
 		}
 
 	}
