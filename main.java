@@ -12,7 +12,6 @@ import java.awt.event.*;
 import java.awt.event.KeyEvent;
 
 import java.lang.String;
-
 public class main {
 	public final static boolean DEBUG = true;
 	public final static String SAVEPATH = "./javagame/save/";
@@ -23,6 +22,15 @@ public class main {
 	public static JFrame frame = new JFrame("Text Adventure");
 	public final static int ENTER = KeyEvent.VK_ENTER;
 	public static int OUT_WIDTH = 80;
+	public static Rooms loc = new Rooms();
+	public static Player pl = new Player();
+	public static Items it = new Items();
+	public static Mobs mo = new Mobs();
+	public static Magic mag = new Magic();
+	public static Room r = new Room();
+	public static Skills skl = new Skills();
+	public static Parser p = new Parser();
+	public static String input = "null";
 	
 
 	
@@ -77,6 +85,7 @@ public class main {
 		textWindow.setWrapStyleWord(true);
 		textWindow.setVisible(true);
 		entryField.setSize(640,20);
+		entryField.addKeyListener(new KeyListen());
 		//gameWindow.add(textWindow);
 	//	gameWindow.setVisible(true);
 	//	frame.add(textWindow);
@@ -87,16 +96,8 @@ public class main {
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         frame.setVisible(true);
 		
-		Scanner scanner = new Scanner( System.in );
-		String input = null;
-		Rooms loc = null; 
-		Player pl = null;
-		Items it = null;
-		Mobs mo = null;
-		Magic mag = null;
-		Room r = null;
-		Skills skl = null;
-		Parser p = new Parser();
+		//Scanner scanner = new Scanner( System.in );
+
 
 		
 			loc = new Rooms();	
@@ -144,8 +145,8 @@ public class main {
 		p.Parse("look", loc, r,pl,it, mo, mag, skl);
 
 		//Runs Parser in a loop until user types "Quit"
-		do {  
-			input = scanner.nextLine();
+		/*do {  
+			//input = scanner.nextLine();
 
 			try {
 				r = p.Parse(input, loc, r, pl, it, mo, mag, skl);
@@ -154,7 +155,7 @@ public class main {
 			}
 			//main.output(r);
 		} while (r != loc.roomVector.elementAt(0));//while (!input.equalsIgnoreCase("quit"));
-
+*/
 	}
 
 
@@ -166,3 +167,13 @@ public class main {
 
 
 }
+
+class KeyListen extends KeyAdapter {
+public void keyTyped(KeyEvent e){
+if (e.getKeyChar() == '\n'){
+main.r = main.p.Parse(main.entryField.getText(),main.loc,main.r,main.pl,main.it,main.mo,main.mag,main.skl);
+main.entryField.setText("");
+}
+}
+}
+
