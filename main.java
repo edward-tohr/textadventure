@@ -17,7 +17,7 @@ public class main {
 	public final static boolean DEBUG = true;
 	public final static String SAVEPATH = "./javagame/save/";
 	public boolean alive = true;
-	public static JTextField textField = new JTextField();
+	public static JTextField entryField = new JTextField();
 	public static JTextArea textWindow = new JTextArea();
 	public static JScrollPane gameWindow = new JScrollPane(textWindow);
 	public static JFrame frame = new JFrame("Text Adventure");
@@ -76,12 +76,13 @@ public class main {
 		textWindow.setLineWrap(true);
 		textWindow.setWrapStyleWord(true);
 		textWindow.setVisible(true);
-		textField.setBounds(0, 480, 640, 20);
+		entryField.setSize(640,20);
 		//gameWindow.add(textWindow);
 	//	gameWindow.setVisible(true);
 	//	frame.add(textWindow);
 	//	frame.add(textField);
-		frame.add(gameWindow);
+		frame.add(gameWindow,BorderLayout.CENTER);
+		frame.add(entryField,BorderLayout.PAGE_END);
 		DefaultCaret caret = (DefaultCaret)textWindow.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         frame.setVisible(true);
