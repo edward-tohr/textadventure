@@ -72,6 +72,9 @@ public class Items implements Cloneable{
 		itemVector.addElement(sb0);
 
 
+		
+		equipment nul = new equipment("null","null",false,"null",-1,-1,-1,(byte)0b00000000);
+		equipVector.addElement(nul);
 		equipment w0 = new equipment("dagger", "A short metal blade used for stabbing.", false, "null", 0, 0, 1, (byte)0b11111111);
 		w0.setVerb(DaggerVerb);
 		equipVector.addElement(w0);
@@ -249,17 +252,13 @@ public class Items implements Cloneable{
 
 	}
 
-	equipment getEquipFromID(int id){
-		equipment i = null;
+	equipment getEquipFromID(int id, int type){
 		for (int n = 0; n < equipVector.size(); n++){
-			int test = equipVector.elementAt(n).getId();
-			if (test == id){
-				i = equipVector.elementAt(n);
-			}
+			if (equipVector.elementAt(n).getId() == id && equipVector.elementAt(n).getType() == type){
+			return equipVector.elementAt(n);
 		}
-
-		return i;
-
+	}
+	return equipVector.elementAt(0);
 	}
 
 	Vector<Item> getUsableItems(){

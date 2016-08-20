@@ -54,21 +54,21 @@ public class Player extends Mob{
 
 	boolean repeat = false;
 
-	int weap = 0;
-	int helm = 0;
-	int armr = 0;
-	int glov = 0;
-	int legs = 0;
-	int boot = 0;
+	int weap = -1;
+	int helm = -1;
+	int armr = -1;
+	int glov = -1;
+	int legs = -1;
+	int boot = -1;
 
 	int atk = 0;
 	int def = 0;
 
-	int tempHelm = 0;
-	int tempArmr = 0;
-	int tempGlov = 0;
-	int tempLegs = 0;
-	int tempBoot = 0;
+	int tempHelm = -1;
+	int tempArmr = -1;
+	int tempGlov = -1;
+	int tempLegs = -1;
+	int tempBoot = -1;
 
 	int combatStyle = 0;
 
@@ -97,8 +97,8 @@ public class Player extends Mob{
 
 				switch (e.type) {
 				case 0: //weapon
-					if (weap != 0){
-						temp = i.getEquipFromID(weap);
+					if (weap != -1){
+						temp = i.getEquipFromID(weap,0);
 						temp.equipped = false;
 						main.output("Unequipped " + temp.getName() + ".");
 					}
@@ -109,8 +109,8 @@ public class Player extends Mob{
 					combat = e.verb;
 					break;
 				case 1: //helmet
-					if (helm != 0){
-						temp = i.getEquipFromID(helm);
+					if (helm != -1){
+						temp = i.getEquipFromID(helm,1);
 						temp.equipped = false;
 						main.output("Unequipped " + temp.getName() + ".");
 					}
@@ -121,8 +121,8 @@ public class Player extends Mob{
 					helm = e.id;
 					break;
 				case 2: //Body armor
-					if (armr != 0){
-						temp = i.getEquipFromID(armr);
+					if (armr != -1){
+						temp = i.getEquipFromID(armr,2);
 						temp.equipped = false;
 						main.output("Unequipped " + temp.getName() + ".");
 					}
@@ -133,8 +133,8 @@ public class Player extends Mob{
 					armr = e.id;
 					break;
 				case 3: //Gloves
-					if (glov != 0){
-						temp = i.getEquipFromID(glov);
+					if (glov != -1){
+						temp = i.getEquipFromID(glov,3);
 						temp.equipped = false;
 						main.output("Unequipped " + temp.getName() + ".");
 					}
@@ -145,8 +145,8 @@ public class Player extends Mob{
 					glov = e.id;
 					break;
 				case 4: //leggings
-					if (legs != 0){
-						temp = i.getEquipFromID(legs);
+					if (legs != -1){
+						temp = i.getEquipFromID(legs,4);
 						temp.equipped = false;
 						main.output("Unequipped " + temp.getName() + ".");
 					}
@@ -157,8 +157,8 @@ public class Player extends Mob{
 					legs = e.id;
 					break;
 				case 5: //boots
-					if (boot != 0){
-						temp = i.getEquipFromID(boot);
+					if (boot != -1){
+						temp = i.getEquipFromID(boot,5);
 						temp.equipped = false;
 						main.output("Unequipped " + temp.getName() + ".");
 					}

@@ -332,65 +332,60 @@ public class Parser {
 
 	Room north(Room ro, Rooms loc) {
 
-		Room r = ro;
-
 		int roomNum = ro.getNorth();
 
 		if (roomNum == -1) {
 			syntaxError();		
 		} else {
-			r = loc.getRoom(roomNum);
+			ro = loc.getRoom(roomNum);
 		}
 
-		return r;
+		return ro;
 
 	}
 
 	Room south(Room ro, Rooms loc) {
 
-		Room r = ro;
 
 		int roomNum = ro.getSouth();
 
 		if (roomNum == -1) {
 			syntaxError();		
 		} else {
-			r = loc.getRoom(roomNum);
+			ro = loc.getRoom(roomNum);
 		}
 
-		return r;
+		return ro;
 
 	}
 
 	Room east(Room ro, Rooms loc) {
 
-		Room r = ro;
 
 		int roomNum = ro.getEast();
 
 		if (roomNum == -1) {
 			syntaxError();		
 		} else {
-			r = loc.getRoom(roomNum);
+			ro = loc.getRoom(roomNum);
 		}
 
-		return r;
+		return ro;
 
 	}
 
 	Room west(Room ro, Rooms loc) {
 
-		Room r = ro;
 
 		int roomNum = ro.getWest();
 
 		if (roomNum == -1) {
 			syntaxError();		
 		} else {
-			r = loc.getRoom(roomNum);
+			ro = loc.getRoom(roomNum);
 		}
 
-		return r;
+		return ro;
 
 	}
 
@@ -716,45 +711,45 @@ public class Parser {
 		String tempBoot;
 		equipment temp;
 
-		if (p.weap == 0){
+		if (p.weap == -1){
 			tempWeap = "nothing";
 		} else {
-			temp = it.getEquipFromID(p.weap);
+			temp = it.getEquipFromID(p.weap,0);
 			tempWeap = temp.getName();
 		}
 
-		if (p.helm == 0){
+		if (p.helm == -1){
 			tempHelm = "nothing";
 		} else {
-			temp = it.getEquipFromID(p.helm);
+			temp = it.getEquipFromID(p.helm,1);
 			tempHelm = temp.getName();
 		}
 
-		if (p.armr == 0){
+		if (p.armr == -1){
 			tempArmr = "nothing";
 		} else {
-			temp = it.getEquipFromID(p.armr);
+			temp = it.getEquipFromID(p.armr,2);
 			tempArmr = temp.getName();
 		}
 
-		if (p.glov == 0){
+		if (p.glov == -1){
 			tempGlov = "nothing";
 		} else {
-			temp = it.getEquipFromID(p.glov);
+			temp = it.getEquipFromID(p.glov,3);
 			tempGlov = temp.getName();
 		}
 
-		if (p.legs == 0){
+		if (p.legs == -1){
 			tempLegs = "nothing";
 		} else {
-			temp = it.getEquipFromID(p.legs);
+			temp = it.getEquipFromID(p.legs,4);
 			tempLegs = temp.getName();
 		}
 
-		if (p.boot == 0){
+		if (p.boot == -1){
 			tempBoot = "nothing";
 		} else {
-			temp = it.getEquipFromID(p.boot);
+			temp = it.getEquipFromID(p.boot,5);
 			tempBoot = temp.getName();
 		}
 
