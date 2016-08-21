@@ -98,6 +98,7 @@ public class main {
 		DefaultCaret caret = (DefaultCaret)textWindow.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         frame.setVisible(true);
+	entryField.requestFocusInWindow();
 		
 		//Scanner scanner = new Scanner( System.in );
 
