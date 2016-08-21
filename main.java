@@ -99,8 +99,10 @@ public class main {
 		frame.add(entryField,BorderLayout.PAGE_END);
 		DefaultCaret caret = (DefaultCaret)textWindow.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+		entryField.setText("help");
         frame.setVisible(true);
 	entryField.requestFocusInWindow();
+	entryField.selectAll();
 		
 		//Scanner scanner = new Scanner( System.in );
 
