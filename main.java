@@ -31,6 +31,7 @@ public class main {
 	public static Skills skl = new Skills();
 	public static Parser p = new Parser();
 	public static String input = "null";
+	public static Font normalFont = new Font("Courier New",Font.BOLD,12);
 	
 
 	
@@ -86,6 +87,8 @@ public class main {
 		textWindow.setVisible(true);
 		entryField.setSize(640,20);
 		entryField.addKeyListener(new KeyListen());
+		textWindow.setFont(normalFont);
+		entryField.setFont(normalFont);
 		//gameWindow.add(textWindow);
 	//	gameWindow.setVisible(true);
 	//	frame.add(textWindow);
@@ -172,9 +175,12 @@ public class main {
 class KeyListen extends KeyAdapter {
 public void keyTyped(KeyEvent e){
 if (e.getKeyChar() == '\n'){
-main.output(main.entryField.getText());
+main.output("> " + main.entryField.getText());
 main.r = main.p.Parse(main.entryField.getText(),main.loc,main.r,main.pl,main.it,main.mo,main.mag,main.skl);
 main.entryField.setText("");
+if (main.r == main.loc.roomVector.elementAt(0)){
+System.exit(0);
+}
 }
 }
 }
