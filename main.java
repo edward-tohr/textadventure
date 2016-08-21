@@ -80,6 +80,8 @@ public class main {
         //Add contents to the window.
 		frame.setSize(660, 500);
 		textWindow.setSize(640, 480);
+		textWindow.setMargin(new Insets(5,5,5,5));
+		entryField.setMargin(new Insets(1,5,1,0));
 		textWindow.setLocation(0, 0);
 		textWindow.setEditable(false);
 		textWindow.setLineWrap(true);
