@@ -36,7 +36,7 @@ public class main {
 	
 	//A single function to handle all text output. Should make un-consoleing it easier later on.
 	public static void out (String outtext){ 
-		System.out.print(outtext);
+		//System.out.print(outtext);
 		textWindow.append(outtext);
 		
 		
@@ -161,7 +161,8 @@ public class main {
 
 
 	public static void output(int outtext) {
-		System.out.println(outtext);
+		//System.out.println(outtext);
+		output(Integer.toString(outtext));
 		
 	}
 
@@ -171,6 +172,7 @@ public class main {
 class KeyListen extends KeyAdapter {
 public void keyTyped(KeyEvent e){
 if (e.getKeyChar() == '\n'){
+main.output(main.entryField.getText());
 main.r = main.p.Parse(main.entryField.getText(),main.loc,main.r,main.pl,main.it,main.mo,main.mag,main.skl);
 main.entryField.setText("");
 }
