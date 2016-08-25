@@ -1,6 +1,3 @@
-//TODO: Lots of stuff needs to be done with the window, but I'll settle for making it close
-//	automatically when the user quits. Eventually.
-
 //TODO: Make player.role and associated variables enums.
 
 import java.util.Scanner;
