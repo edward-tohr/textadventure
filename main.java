@@ -1,6 +1,24 @@
-//TODO: Make player.role and associated variables enums.
+//TODO: Make player.role and associated variables enums? Maybe not,
+//	since Java enums don't like to be coerced to ints.
 
-import java.util.Scanner;
+//TODO: Rewrite Mob.java, especially combat() and talk(), since they
+//	still output to, and expect input from, the console.
+
+//TODO: Have Mobs, Spells, Rooms, Items, etc. parse from a file instead
+//	of hardcoding everything.
+
+//TODO: Have Rooms, Players, Mobs, etc. save info to a file.
+
+//TODO: Have a better way to handle multiple copies of an item/mob in
+//	the same room.
+
+//TODO: Maybe make the player's inventory not depend on the contents
+//	of a specific room?
+
+//TODO: Maybe make quit() just exit gracefully, instead of teleporting
+//	the player to a specific room?
+
+//import java.util.Scanner;
 //import java.io.*;
 import javax.swing.*;
 import javax.swing.text.*;
