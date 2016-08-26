@@ -18,7 +18,7 @@ public class main {
 	public static JScrollPane gameWindow = new JScrollPane(textWindow);
 	public static JFrame frame = new JFrame("Text Adventure");
 	public final static int ENTER = KeyEvent.VK_ENTER;
-	public static int OUT_WIDTH = 80;
+	public static int OUT_WIDTH = 90;
 	public static Rooms loc = new Rooms();
 	public static Player pl = new Player();
 	public static Items it = new Items();
@@ -68,15 +68,19 @@ public class main {
 				OUT_WIDTH= Integer.parseInt(args[0]);
 				} catch (NumberFormatException e){
 					out(args[0] + " is not a number! Defaulting to 80.");
-					OUT_WIDTH = 80;
+					OUT_WIDTH = 90;
 					}
 				}
 		//JScrollPane scrollPane = new JScrollPane(textWindow);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Add contents to the window.
-		frame.setSize(660, 500);
-		textWindow.setSize(640, 480);
+		int width = OUT_WIDTH * 7;
+		width += 10;
+		int height = width * 3;
+		height /=4;
+		frame.setSize(width + 20, height + 20);
+		textWindow.setSize(width, height);
 		textWindow.setMargin(new Insets(5,5,5,5));
 		entryField.setMargin(new Insets(1,5,1,0));
 		textWindow.setLocation(0, 0);
@@ -84,7 +88,7 @@ public class main {
 		textWindow.setLineWrap(true);
 		textWindow.setWrapStyleWord(true);
 		textWindow.setVisible(true);
-		entryField.setSize(640,20);
+		entryField.setSize(width,20);
 		entryField.addKeyListener(new KeyListen());
 		textWindow.setFont(normalFont);
 		entryField.setFont(normalFont);
