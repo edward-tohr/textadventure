@@ -1740,12 +1740,27 @@ public class Parser {
 		main.output("Output width set to " + main.OUT_WIDTH);
 		int width = ((main.OUT_WIDTH+1) * 7)+10;
 		int height = (width * 3)/4;
+		if (main.widescreen){
+		height = (width*9)/16;
+		}
 		main.frame.setSize(width+20,height+20);
 		main.textWindow.setSize(width,height);
 		main.entryField.setSize(width,20);
 		}
 
 	}
+	}
+
+	void wide(){
+	String width = Integer.toString(main.OUT_WIDTH);
+	if (main.widescreen){
+	main.widescreen = false;
+	main.output("Widescreen disabled.");
+	} else {
+	main.widescreen = true;
+	main.output("Widescreen enabled.");
+	}
+	cols(width);
 	}
 	
 	
@@ -1914,6 +1929,10 @@ public class Parser {
 		case "column":
 		case "columns":
 			cols(word2);
+			break;
+		case "wide":
+		case "widescreen":
+			wide();
 			break;
 
 

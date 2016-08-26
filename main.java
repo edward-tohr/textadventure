@@ -28,6 +28,7 @@ import java.awt.event.KeyEvent;
 
 import java.lang.String;
 public class main {
+	public static boolean widescreen = false;
 	public final static boolean DEBUG = true;
 	public final static String SAVEPATH = "./javagame/save/";
 	public boolean alive = true;
