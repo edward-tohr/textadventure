@@ -1,3 +1,4 @@
+
 import java.lang.String;
 //import java.util.Scanner;
 import java.util.Vector;
@@ -1732,6 +1733,11 @@ public class Parser {
 			}
 		main.OUT_WIDTH = tempInt;
 		main.output("Output width set to " + main.OUT_WIDTH);
+		int width = (main.OUT_WIDTH * 7)+10;
+		int height = (width * 3)/4;
+		main.frame.setSize(width+20,height+20);
+		main.textWindow.setSize(width,height);
+		main.entryField.setSize(width,20);
 
 	}
 	}
