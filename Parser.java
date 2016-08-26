@@ -1731,13 +1731,19 @@ public class Parser {
 			main.output("Error parsing the number! Please try again.");
 			tempInt = main.OUT_WIDTH;
 			}
+		if (tempInt < 40) {
+		tempInt = 40;
+		main.output("Too narrow! Using 40 columns.");
+		cols("40");
+		} else {
 		main.OUT_WIDTH = tempInt;
 		main.output("Output width set to " + main.OUT_WIDTH);
-		int width = (main.OUT_WIDTH * 7)+10;
+		int width = ((main.OUT_WIDTH+1) * 7)+10;
 		int height = (width * 3)/4;
 		main.frame.setSize(width+20,height+20);
 		main.textWindow.setSize(width,height);
 		main.entryField.setSize(width,20);
+		}
 
 	}
 	}

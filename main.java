@@ -93,7 +93,7 @@ public class main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Add contents to the window.
-		int width = OUT_WIDTH * 7;
+		int width = (OUT_WIDTH+1) * 7;
 		width += 10;
 		int height = width * 3;
 		height /=4;
