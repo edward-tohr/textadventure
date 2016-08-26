@@ -53,7 +53,6 @@ public class NPC extends Mob {
 			Monster m = (Monster)this.monsterize(mob);
 			combat(p, m, false, loc, i, mag, skl);
 		}
-
 		if (npc.type == 1) { // If item merchant...
 			Vector<Item> itemsHere = new Vector<Item>(1,1);
 			for (int n = 0; n < inventory.length; n++){
@@ -100,6 +99,7 @@ public class NPC extends Mob {
 
 
 
+//TODO: This needs to get input from main.entryField, not scanner.
 	public void ishop(Vector<Item> i, Player p, Rooms loc, Items it, Rooms r){
 		int g = p.gold;
 		char c;
@@ -211,6 +211,7 @@ public class NPC extends Mob {
 
 	}
 
+//TODO: This needs to get input from main.entryField, not scanner.
 	public void eshop(Vector<equipment> i, Player p, Rooms loc, Items it, Rooms r){
 		int g = p.gold;
 		int c;

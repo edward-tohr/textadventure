@@ -124,6 +124,8 @@ public class Mob {
 		this.wis = m.wis;
 		this.xp = m.xp;
 	}
+
+	//TODO: This needs to get input from main.entryField.
 	int combat(Player p, Monster m, boolean u, Rooms loc, Items it, Magic mag, Skills skl) { //if u == true, player initiated combat. False if NPC did. Returns 1 if player survives, 0 if he dies.
 		int result = 1;
 		// All of these get a +1 to try and prevent div0 errors.
