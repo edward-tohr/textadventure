@@ -28,6 +28,7 @@ import java.awt.event.KeyEvent;
 
 import java.lang.String;
 public class main {
+	public static boolean resizable = true;
 	public static boolean widescreen = false;
 	public final static boolean DEBUG = true;
 	public final static String SAVEPATH = "./javagame/save/";
@@ -86,7 +87,7 @@ public class main {
 			try {
 				OUT_WIDTH= Integer.parseInt(args[0]);
 				} catch (NumberFormatException e){
-					out(args[0] + " is not a number! Defaulting to 80.");
+					out(args[0] + " is not a number! Defaulting to 90.");
 					OUT_WIDTH = 90;
 					}
 				}
@@ -109,6 +110,7 @@ public class main {
 		textWindow.setVisible(true);
 		entryField.setSize(width,20);
 		entryField.addKeyListener(new KeyListen());
+		frame.addComponentListener(new ComponentListen());
 		textWindow.setFont(normalFont);
 		entryField.setFont(normalFont);
 		//gameWindow.add(textWindow);
@@ -203,10 +205,30 @@ if (e.getKeyChar() == '\n'){
 main.output("> " + main.entryField.getText());
 main.r = main.p.Parse(main.entryField.getText(),main.loc,main.r,main.pl,main.it,main.mo,main.mag,main.skl);
 main.entryField.setText("");
+main.resizable = true;
 if (main.r == main.loc.roomVector.elementAt(0)){
 System.exit(0);
 }
 }
 }
 }
+
+class ComponentListen implements ComponentListener {
+public void componentResized(ComponentEvent e){
+if (main.resizable){
+int newwidth = e.getComponent().getWidth();
+newwidth -= 11;
+newwidth /= 7;
+main.p.Parse("cols " + Integer.toString(newwidth),main.loc, main.r,main.pl, main.it, main.mo, main.mag, main.skl);
+main.resizable = false;
+}
+else {
+main.resizable = true;
+}
+}
+public void componentHidden(ComponentEvent e){}
+public void componentMoved(ComponentEvent e){}
+public void componentShown(ComponentEvent e){}
+}
+
 

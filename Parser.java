@@ -1762,6 +1762,10 @@ public class Parser {
 	}
 	cols(width);
 	}
+
+	void colGet(){
+	main.output(main.textWindow.getColumns());
+	}
 	
 	
 	Room Parse (String input, Rooms loc, Room r, Player p, Items i, Mobs mo, Magic mag, Skills skl) {
@@ -1933,6 +1937,10 @@ public class Parser {
 		case "wide":
 		case "widescreen":
 			wide();
+			break;
+
+		case "getcols":
+			colGet();
 			break;
 
 
