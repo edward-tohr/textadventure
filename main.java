@@ -28,7 +28,8 @@ import java.awt.event.KeyEvent;
 
 import java.lang.String;
 public class main {
-	public static boolean resizable = true;
+	public static boolean resizable = false;
+	public static boolean quitting = false;
 	public static boolean widescreen = false;
 	public final static boolean DEBUG = true;
 	public final static String SAVEPATH = "./javagame/save/";
@@ -100,7 +101,9 @@ public class main {
 		int height = width * 3;
 		height /=4;
 		frame.setSize(width + 20, height + 20);
+		resizable = false;
 		textWindow.setSize(width, height);
+		resizable = false;
 		textWindow.setMargin(new Insets(5,5,5,5));
 		entryField.setMargin(new Insets(1,5,1,0));
 		textWindow.setLocation(0, 0);
@@ -109,8 +112,8 @@ public class main {
 		textWindow.setWrapStyleWord(true);
 		textWindow.setVisible(true);
 		entryField.setSize(width,20);
+		resizable = false;
 		entryField.addKeyListener(new KeyListen());
-		frame.addComponentListener(new ComponentListen());
 		textWindow.setFont(normalFont);
 		entryField.setFont(normalFont);
 		//gameWindow.add(textWindow);
@@ -172,6 +175,9 @@ public class main {
 		out(" ###  ####  #   # ##### #   # #####\n#   # #   # #   # #     ##  #   #  \n##### #   # #   # ###   # # #   #  \n#   # #   #  # #  #     #  ##   #  \n#   # ####    #   ##### #   #   #  \n"); 
 		out("\n A text adventure by Jeff Morse.\nType \"quit\" to exit, and 'help' to get help.\n");
 
+		frame.addComponentListener(new ComponentListen());
+
+
 		p.Parse("look", loc, r,pl,it, mo, mag, skl);
 
 		//Runs Parser in a loop until user types "Quit"
@@ -202,11 +208,14 @@ public class main {
 class KeyListen extends KeyAdapter {
 public void keyTyped(KeyEvent e){
 if (e.getKeyChar() == '\n'){
+if (!main.quitting){
 main.output("> " + main.entryField.getText());
 main.r = main.p.Parse(main.entryField.getText(),main.loc,main.r,main.pl,main.it,main.mo,main.mag,main.skl);
 main.entryField.setText("");
-main.resizable = true;
 if (main.r == main.loc.roomVector.elementAt(0)){
+main.quitting = true;
+}
+} else {
 System.exit(0);
 }
 }

@@ -1743,9 +1743,13 @@ public class Parser {
 		if (main.widescreen){
 		height = (width*9)/16;
 		}
+		main.resizable = false;
 		main.frame.setSize(width+20,height+20);
+		/*main.resizable = false;
 		main.textWindow.setSize(width,height);
-		main.entryField.setSize(width,20);
+		main.resizable = false;
+		main.entryField.setSize(width,20);*/
+		
 		}
 
 	}
@@ -1950,6 +1954,7 @@ public class Parser {
 		}
 		main.out("\n");
 		//main.output("returning r value " + r);
+
 		return r;	
 
 	}
