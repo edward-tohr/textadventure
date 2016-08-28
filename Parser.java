@@ -1720,6 +1720,74 @@ public class Parser {
 		}
 	}
 
+	void put (String word2, Room r, Mobs mo, Items it, Rooms loc, Player p, Magic mag, Skills skl){
+		String item;
+		String target;
+		String here = r.name;
+		String tempPrep;
+		boolean prepIn = false;
+		int tempInt = 0;
+			do {
+			tempPrep = word2.substring(tempInt, tempInt + 4);
+			if (tempInt == word2.length() - 4){
+				syntaxError();
+				main.output("Try \"put (item) (in/on) (creature)\".");
+				break;
+			}
+			tempInt++;
+		} while (!tempPrep.contentEquals(" in ") && !tempPrep.contentEquals(" on "));
+		if (tempPrep.contentEquals(" in ")) {
+		prepIn = true;
+		}
+		item = word2.substring(0,tempInt);
+		item = item.trim();
+		target = word2.substring(tempInt+3,word2.length());
+		target = target.trim();
+
+		Item object = it.getItemFromName(item);
+		equipment equip = it.getEquipFromName(item);
+		Monster creature = mo.getMonsterFromName(target);
+		if (object == null){
+		if (equip == null){
+		main.output("I don't think that item: " + item + " exists.");
+		syntaxError();
+		} else {
+		equip(item,p,it);
+		r = attack(target,p,true,loc,mo,r,it,mag,skl);
+		}
+		}
+		if (creature == null){
+		main.output("I don't think that creature: " + target + " exists.");
+		syntaxError();
+		}
+		if (object.getLocatedAt().equalsIgnoreCase("inventory")  && creature.getLocatedAt().equalsIgnoreCase(here)){
+		String pronoun;
+		switch(creature.getGender()){
+		case 0: //male
+		pronoun = "He";
+		break;
+		case 1: //female
+		pronoun = "She";
+		break;
+		default:
+		pronoun = "It";
+		break;
+		}
+		if (prepIn){
+		main.output(pronoun + " likes it.");
+		} else {
+		main.output(pronoun + " now has a jaunty hat.");
+		}
+		} else {
+		main.output("I can't find that here.");
+		}
+		
+		
+		
+
+
+	}
+
 	void cols(String numCols){
 	int tempInt = main.OUT_WIDTH;
 	if (numCols == "null"){
@@ -1945,6 +2013,10 @@ public class Parser {
 
 		case "getcols":
 			colGet();
+			break;
+		case "put":
+			put(word2,r,mo,i,loc,p,mag,skl);
+
 			break;
 
 

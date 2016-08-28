@@ -50,13 +50,14 @@ public class main {
 	public static Parser p = new Parser();
 	public static String input = "null";
 	public static Font normalFont = new Font("Courier New",Font.BOLD,12);
-	
+	public final static int FONT_WIDTH = 7; //Yay for having to manually update this if I ever want to change the font.
 
 	
 	//A single function to handle all text output. Should make un-consoleing it easier later on.
 	public static void out (String outtext){ 
 		//System.out.print(outtext);
 		textWindow.append(outtext);
+		textWindow.repaint();
 		
 		
 	}
@@ -96,10 +97,25 @@ public class main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Add contents to the window.
-		int width = (OUT_WIDTH+1) * 7;
+		int width = (OUT_WIDTH+1) * FONT_WIDTH;
 		width += 10;
 		int height = width * 3;
 		height /=4;
+		try{
+		UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+		}
+		 catch (UnsupportedLookAndFeelException e) {
+       // handle exception
+    }
+    catch (ClassNotFoundException e) {
+       // handle exception
+    }
+    catch (InstantiationException e) {
+       // handle exception
+    }
+    catch (IllegalAccessException e) {
+       // handle exception
+    }
 		frame.setSize(width + 20, height + 20);
 		resizable = false;
 		textWindow.setSize(width, height);
@@ -202,7 +218,11 @@ public class main {
 		
 	}
 
-
+	public static String getInput(){
+		//entryField.setText("");
+		//if (
+		return entryField.getText();
+	}
 }
 
 class KeyListen extends KeyAdapter {
@@ -213,6 +233,7 @@ main.output("> " + main.entryField.getText());
 main.r = main.p.Parse(main.entryField.getText(),main.loc,main.r,main.pl,main.it,main.mo,main.mag,main.skl);
 main.entryField.setText("");
 if (main.r == main.loc.roomVector.elementAt(0)){
+main.entryField.setEditable(false);
 main.quitting = true;
 }
 } else {

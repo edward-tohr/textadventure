@@ -1,9 +1,6 @@
 import java.util.Vector;
-import java.util.Scanner;
-
 
 public class Mob {
-	Scanner scanner = new Scanner(System.in);
 	String input;
 	char choice;
 
@@ -197,7 +194,7 @@ public class Mob {
 				do {
 					main.output("What will you do?");
 					main.output("'A'ttack, 'D'efend, 'I'tem, 'M'agic,'F'lee, 'S'kills or change 'O'ptions?");
-					input = scanner.nextLine();
+					input = main.getInput();
 					input = input.toUpperCase();
 					input = input.replaceAll("[^ADIMFSO]", " ");
 				} while (input.length() == 0);
@@ -297,7 +294,7 @@ public class Mob {
 						for (int n = 0; n < combatItems.size(); n++){
 							main.output(n+1 + ": " + combatItems.elementAt(n).name);
 						}
-						input = scanner.nextLine();
+						input = main.getInput();
 						input = input.replaceAll("[^0123456789]", " ");
 						input = input.trim();
 						if (input.isEmpty()){
@@ -312,7 +309,7 @@ public class Mob {
 							main.output("Invalid input.");
 						} else {
 							main.output("Using " + combatItems.elementAt(num).name + ". Is this okay?");
-							input = scanner.nextLine();
+							input = main.getInput();
 							input = input.toUpperCase();
 							input = input.replaceAll("[^YN]", " ");
 							input = input.trim();
@@ -356,7 +353,7 @@ public class Mob {
 						for (int n = 0; n < spellVector.size(); n++){
 							main.output(n+1 + ": " + spellVector.elementAt(n).name + "     Cost:" + spellVector.elementAt(n).cost);
 						}
-						input = scanner.nextLine();
+						input = main.getInput();
 						input = input.replaceAll("[^0123456789]", " ");
 						input = input.trim();
 						if (input.isEmpty()){
@@ -377,7 +374,7 @@ public class Mob {
 							if (!main.DEBUG)
 								p.mp -= spellVector.elementAt(num).cost;
 							main.output("Using " + spellVector.elementAt(num).name + ". Is this okay?");
-							input = scanner.nextLine();
+							input = main.getInput();
 							input = input.toUpperCase();
 							input = input.replaceAll("[^YN]", " ");
 							input = input.trim();
@@ -529,7 +526,7 @@ public class Mob {
 					outText.append(".\n");
 					main.output(outText.toString());
 					outText.delete(0,outText.length());
-					input = scanner.nextLine();
+					input = main.getInput();
 					input = input.toUpperCase();
 					input = input.replaceAll("[^ABD]", " ");
 					char temp = input.charAt(0);
@@ -580,7 +577,7 @@ public class Mob {
 
 							main.output(n+1 + ": " + skillVector.elementAt(n).name);
 						}
-						input = scanner.nextLine();
+						input = main.getInput();
 						input = input.replaceAll("[^0123456789]", " ");
 						input = input.trim();
 						if (input.isEmpty()){
@@ -597,7 +594,7 @@ public class Mob {
 							Skill s = skillVector.elementAt(num);
 							main.output("Using " + s.name+ ", is that okay?");
 						}
-						input = scanner.nextLine();
+						input = main.getInput();
 						input = input.toUpperCase();
 						input = input.replaceAll("[^YN]", " ");
 						input = input.trim();
@@ -649,7 +646,7 @@ public class Mob {
 
 										main.output(n+1 + ": " + w.elementAt(n).name);
 									}
-									input = scanner.nextLine();
+									input = main.getInput();
 									input = input.replaceAll("[^0123456789]", " ");
 									input = input.trim();
 									if (input.isEmpty()){
@@ -666,7 +663,7 @@ public class Mob {
 										equipment toss = w.elementAt(num);
 										main.output("Throwing " + toss.name+ ", is that okay?");
 									}
-									input = scanner.nextLine();
+									input = main.getInput();
 									input = input.toUpperCase();
 									input = input.replaceAll("[^YN]", " ");
 									input = input.trim();
@@ -1379,6 +1376,10 @@ public class Mob {
 
 	public String getNick(){
 		return nick;
+	}
+
+	public int getGender(){
+	return gender;
 	}
 
 

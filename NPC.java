@@ -1,12 +1,10 @@
 import java.util.Vector;
-import java.util.Scanner;
 
 public class NPC extends Mob {
 	String[] inventory; // For shopkeepers, this determines what they sell. 
 	String input;
 	char choice;
 	int num;
-	Scanner scanner = new Scanner(System.in);
 	boolean tempBool = false;
 	public NPC () {
 
@@ -109,7 +107,7 @@ public class NPC extends Mob {
 		do {
 			main.output("What'll it be? Buying, or selling?");
 			
-			input = scanner.nextLine();
+			input = main.getInput();
 			input = input.toUpperCase();
 			input = input.replaceAll("[^BS]", " ");
 			input = input.trim();
@@ -125,7 +123,7 @@ public class NPC extends Mob {
 			for(int n = 0; n < i.size(); n++){
 				main.output(n+1 + ": " + i.elementAt(n).name + "     " + i.elementAt(n).cost);
 			}
-			input = scanner.nextLine();
+			input = main.getInput();
 			input = input.toUpperCase();
 			input = input.replaceAll("[^0123456789]", " ");
 			input = input.trim();
@@ -161,7 +159,7 @@ public class NPC extends Mob {
 				for(int n = 0; n < have.size(); n++){
 					main.output(n+1 + ": " + have.elementAt(n).name + "     " + have.elementAt(n).cost);
 				}
-				input = scanner.nextLine();
+				input = main.getInput();
 				input = input.toUpperCase();
 				input = input.replaceAll("[^0123456789]", " ");
 				input = input.trim();
@@ -193,7 +191,7 @@ public class NPC extends Mob {
 			
 			
 				main.output("Is there anything else you want?");
-				input = scanner.nextLine();
+				input = main.getInput();
 				input = input.toUpperCase();
 				input = input.replaceAll("[^N]", " ");
 				input = input.trim();
@@ -221,7 +219,7 @@ public class NPC extends Mob {
 		do {
 			main.output("What'll it be? Buying, or selling?");
 			
-			input = scanner.nextLine();
+			input = main.getInput();
 			input = input.toUpperCase();
 			input = input.replaceAll("[^BS]", " ");
 			input = input.trim();
@@ -237,7 +235,7 @@ public class NPC extends Mob {
 			for(int n = 0; n < i.size(); n++){
 				main.output(n+1 + ": " + i.elementAt(n).name + "     " + i.elementAt(n).cost);
 			}
-			input = scanner.nextLine();
+			input = main.getInput();
 			input = input.toUpperCase();
 			input = input.replaceAll("[^0123456789]", " ");
 			input = input.trim();
@@ -273,7 +271,7 @@ public class NPC extends Mob {
 				for(int n = 0; n < have.size(); n++){
 					main.output(n+1 + ": " + have.elementAt(n).name + "     " + have.elementAt(n).cost);
 				}
-				input = scanner.nextLine();
+				input = main.getInput();
 				input = input.toUpperCase();
 				input = input.replaceAll("[^0123456789]", " ");
 				input = input.trim();
@@ -303,7 +301,7 @@ public class NPC extends Mob {
 			
 			
 				main.output("Is there anything else you want?");
-				input = scanner.nextLine();
+				input = main.getInput();
 				input = input.toUpperCase();
 				input = input.replaceAll("[^N]", " ");
 				input = input.trim();
