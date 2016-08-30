@@ -73,6 +73,8 @@ public class Mob {
 	// Other values can be added as necessary. They will be added here for reference.
 	// 21: Goblin King. At half health, he picks up a club and hits harder.
 
+	String hat = ""; // What the creature is wearing on its head, if anything.
+
 	public Mob() {
 
 	}
@@ -1381,6 +1383,15 @@ public class Mob {
 	public int getGender(){
 	return gender;
 	}
+
+	public void setHat(Item i){
+	hat = i.getName();
+	}
+
+	public String getHat(){
+	return hat;
+	}
+
 
 
 	public String runAway(Room r, Rooms rs){

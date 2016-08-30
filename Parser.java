@@ -206,6 +206,28 @@ public class Parser {
 			}
 			else if (mon !=null && monsHere.contains(mon)) {
 				main.output(mon.getDesc());
+				if (!mon.getHat().isEmpty()){
+				String prep;
+				String pos;
+				switch (mon.getGender()){
+				case 0:
+				prep = "He";
+				pos = "his";
+				break;
+				case 1:
+				prep = "She";
+				pos = "her";
+				break;
+				default:
+				prep = "It";
+				pos = "its";
+				break;
+				}
+
+				main.output(prep + " is wearing " + getArticle(i.getItemFromName(mon.getHat())) + " " + mon.getHat() + " on " + pos + " head.");
+				}
+				
+
 			} 
 			else if (npc !=null && npcHere.contains(npc)) {
 				main.output(npc.getDesc());
@@ -1747,6 +1769,8 @@ public class Parser {
 		Item object = it.getItemFromName(item);
 		equipment equip = it.getEquipFromName(item);
 		Monster creature = mo.getMonsterFromName(target);
+		NPC subject = mo.getNPCFromName(target);
+		Mob tempMob;
 		if (object == null){
 		if (equip == null){
 		main.output("I don't think that item: " + item + " exists.");
@@ -1757,9 +1781,15 @@ public class Parser {
 		}
 		}
 		if (creature == null){
+		if (subject == null){
 		main.output("I don't think that creature: " + target + " exists.");
 		syntaxError();
+		} else {
+		subject.monsterfy(mo,subject);
+		creature = mo.getMonsterFromName(target);
 		}
+		}
+		if (object != null && creature != null){
 		if (object.getLocatedAt().equalsIgnoreCase("inventory")  && creature.getLocatedAt().equalsIgnoreCase(here)){
 		String pronoun;
 		switch(creature.getGender()){
@@ -1777,9 +1807,11 @@ public class Parser {
 		main.output(pronoun + " likes it.");
 		} else {
 		main.output(pronoun + " now has a jaunty hat.");
+		creature.setHat(object);
 		}
 		} else {
 		main.output("I can't find that here.");
+		}
 		}
 		
 		

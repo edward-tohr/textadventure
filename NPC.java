@@ -364,6 +364,7 @@ public class NPC extends Mob {
 		newmon.dropchance = this.dropchance;
 		newmon.flee = this.flee;
 		newmon.personality = this.personality;
+		newmon.gender = this.gender;
 		this.kill();
 		this.locatedAt = "null";
 		mobs.monVector.addElement(newmon);

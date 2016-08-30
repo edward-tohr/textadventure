@@ -48,6 +48,7 @@ public class Mobs {
 		n4.inventory = sn4Inv;
 		n4.setLocatedAt("Shop");
 		n4.type = 1;
+		n4.gender = 0;
 		npcVector.addElement(n4);
 
 		NPC n5 = new NPC();
@@ -61,6 +62,7 @@ public class Mobs {
 		n5.inventory = sn5Inv;
 		n5.setLocatedAt("Shop");
 		n5.type = 2;
+		n5.gender = 0;
 		npcVector.addElement(n5);
 		
 		NPC n6 =  new NPC();
@@ -70,8 +72,19 @@ public class Mobs {
 		n6.setDesc("He looks like a guru.");
 		n6.setUnique(true);
 		n6.type = 3;
+		n6.gender = 0;
 		n6.setLocatedAt("Plotguy Room");
 		npcVector.addElement(n6);
+
+		NPC n7 = new NPC();
+		n7.setPosition("leaning up against a wall");
+		n7.setName("Mrryl");
+		n7.setUnique(true);
+		n7.setTitle("Lady");
+		n7.setDesc("She looks like a seasoned adventurer.");
+		n7.gender = 1;
+		n7.setLocatedAt("Room 17");
+		npcVector.addElement(n7);
 
 		Monster m0 = new Monster();
 		m0.setName("null");
