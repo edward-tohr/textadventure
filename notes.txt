@@ -1,0 +1,54 @@
+All right, let's just get some of this stuff written down so I don't forget.
+
+1: Keep number of classes to a minimum. (i.e., don't need mob, npc, and monster).
+2: Don't have a separate manage class (i.e., don't need mobs and mob).
+ 2.5: To that end, have an init() function in parse() that sets up the object vectors
+
+ Let's see...
+
+ [Actor]
+ Instead of having Player, NPC, Monster, Mob, and Mobs, all of that will be Actor now.
+ Maybe, MAYBE have Player as a subclass, but definitely not the others.
+
+ [Object]
+ Instead of Item, Items, Equipment, that'll all be Objects.
+
+ [Room]
+ Room'll still need its own class, though Rooms can be discarded.
+
+ [Ability]?
+ Maybe replace Spell(s), Skill(s), and Magic with this?
+
+ [Verb]?
+ Maybe have a bunch of Verb objects, and Parse can just call Verb.action(), or such?
+ i.e. Verb go = new Verb(); go.action(Room, Direction)? Though Parse() trying to figure out what to pass it might be difficult. Plus, then it might not have access to the vectors with the actors/objects/abilities it needs.
+
+ Though if Parse always passes the current room, and the rest of the string, each verb should be able to figure out what it needs.
+
+ VectorActors, VectorObjects, VectorAbilities, VectorRooms, VectorVerbs... all of these should have public methods to get, remove, and modify stuff.
+ These should also be found in main, preferably, so that everything has access to them.
+
+ Maybe a [Vectors] class?
+ Each vector should have an init() method that fills it with the default info.
+ Also a save() and load() method that'll handle file IO.
+ GetFromName(String) to get a specific member by name.
+ GetAvailable(), to return a subvector of all of the members currently available to the player.
+ (i.e. items in the current room or inventory, abilities known, rooms adjacent to current, etc.)
+ These should be set up where the vectors themselves are held.
+
+ Also, need some way of parsing duplicates. Multiple items in inventory should be fine with just a count,
+ but multiple copies of an actor need to be handled differently.
+
+ Related: there should be an elegant way for multiple verbs to map to the same action.
+
+
+ Abilities and Rooms shouldn't have dupes, at least.
+
+ All input and output should be handled via main.getInput() and main.output(). getInput() should wait for an enter press, and return the string.
+
+ Maybe also have getYesNo() and getList(int numItems) methods? That'll keep all that code in the same place.
+
+ combat() should allow multiple actors at once, on both sides.
+ move() should be able to be blocked by actors and objects, in addition to locked doors.
+
+ actors should be able to engage combat (and move around) on their own.
