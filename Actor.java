@@ -38,7 +38,7 @@ class Actor{
    int maxHealth = 255;
    int disposition = 128;
    int fear = 0;
-   Faction affiliation = main.DEFAULT_FACTION;
+   main.Faction affiliation = DEFAULT_FACTION;
    int str = 0;
    int dex = 0;
    int con = 0;
@@ -55,7 +55,7 @@ class Actor{
    String nickname = null;
    String description = "An actor which has not had a description defined.";
    String position = "standing";
-   Gender gender = main.GENDER_UNDEFINED;
+   main.Gender gender = GENDER_UNDEFINED;
    Vector<String> bodyplan;
    Vector<String> idle;
    Vector<String> combat;
@@ -66,7 +66,7 @@ class Actor{
    Vector<String> hate;
    Vector<String> respect;
    Vector<String> engage;
-   Ai ai = main.AI_DEFAULT;
+   main.Ai ai = AI_DEFAULT;
    Object drop = null;
    int dropChance = 0;
    int flee = 0;
