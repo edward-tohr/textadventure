@@ -22,3 +22,7 @@
  void output(String outtext){
  // do output stuff here
  }
+
+ int randInt(int low, int high){
+ // generate a random integer between low and high
+ }
