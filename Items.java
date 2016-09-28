@@ -27,7 +27,7 @@ public class Items implements Cloneable{
 		i0.setName("null");
 		itemVector.addElement(i0);
 		
-		Item i3 = new Item("aardvark", "Some sort of animal.", false, "Entryway");
+		Item i3 = new Item("aardvark", "An animal of the wildlife bourgeoisie that uses the proletariat ants to survive and continue its decadent capitalist lifestyle.", false, "Entryway");
 		itemVector.addElement(i3);
 
 		Item i4 = new Item("thingy", "It's... a thing. I guess.", true, "Boss Room");
