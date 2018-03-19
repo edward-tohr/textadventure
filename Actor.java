@@ -32,13 +32,16 @@
 // Flee
 // Weapon
 // Hat
-
+import main.Faction;
+import main.Gender;
+import main.Ai;
+import main.output;
 class Actor{
    int health = 255;
    int maxHealth = 255;
    int disposition = 128;
    int fear = 0;
-   main.Faction affiliation = DEFAULT_FACTION;
+   Faction affiliation = DEFAULT_FACTION;
    int str = 0;
    int dex = 0;
    int con = 0;
@@ -55,7 +58,7 @@ class Actor{
    String nickname = null;
    String description = "An actor which has not had a description defined.";
    String position = "standing";
-   main.Gender gender = GENDER_UNDEFINED;
+   Gender gender = GENDER_UNDEFINED;
    Vector<String> bodyplan;
    Vector<String> idle;
    Vector<String> combat;
@@ -66,7 +69,7 @@ class Actor{
    Vector<String> hate;
    Vector<String> respect;
    Vector<String> engage;
-   main.Ai ai = AI_DEFAULT;
+   Ai ai = AI_DEFAULT;
    Object drop = null;
    int dropChance = 0;
    int flee = 0;

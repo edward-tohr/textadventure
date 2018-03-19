@@ -2,47 +2,50 @@
 // bool for equippable, enum for equipment slot? No, setting slot as SLOT_NONE should do.
 // Vector roles for equippable by. (Adventurer should get a special exception?)
 // int for power. There'll also need to be something to determine type (Enum time again!)
+import main.Role;
+import main.EquipSlot
+import main.ObjectType;
 
 class Object{
-main.EquipSlot equipType = SLOT_NONE;
-Vector<main.Role> equipBy;
-main.ObjectType mainType = OBJECT_OTHER;
+EquipSlot equipType = SLOT_NONE;
+Vector<Role> equipBy;
+ObjectType mainType = OBJECT_OTHER;
 int power = 0; // Pulls multi-duty as attack, defense, damage, healing, etc. based on mainType.
 int numHere = 0; // How many of this item are in this stack.
 
-main.EquipSlot getSlot(){
+EquipSlot getSlot(){
 	return equipType;
 	}
 
-void setSlot(main.EquipSlot slot){
+void setSlot(EquipSlot slot){
 	equipType = slot;
 	}
 
-Vector<main.Role> getEquippableBy(){
+Vector<Role> getEquippableBy(){
 	return equipBy;
 	}
 
-void setEquippableBy(Vector<main.Role> roleVector) {
+void setEquippableBy(Vector<Role> roleVector) {
 	equipBy = roleVector;
 	}
 
-void addEquippableBy(main.Role role) {
+void addEquippableBy(Role role) {
 	if (!equipBy.contains(role)){
 		equipBy.add(role);
 		}
 	}
 
-void removeEquippableBy(main.Role role){
+void removeEquippableBy(Role role){
 	if (equipBy.contains(role)){
 		equipBy.remove(role);
 		}
 	}
 
-main.ObjectType getType(){
+ObjectType getType(){
 	return mainType;
 	}
 
-void setType (main.ObjectType type){
+void setType (ObjectType type){
 	mainType = type;
 	}
 
@@ -64,7 +67,4 @@ void setNumHere(int number){
 		}
 	numHere = number;
 	}
-
-
-
 }
